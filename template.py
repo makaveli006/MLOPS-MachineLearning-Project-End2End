@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-import sys
 
 project_name = "us_visa"
 
@@ -39,11 +38,8 @@ list_of_files = [
 
 
 for filepath in list_of_files:
-    filepath = Path(filepath) # Path is used to handle different OS path styles or os agnostic paths
-    # print(filepath)
+    filepath = Path(filepath)
     filedir, filename = os.path.split(filepath)
-    print(filedir, "-->", filename)
-    # sys.exit()
     if filedir != "":
         os.makedirs(filedir, exist_ok=True)
     if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
